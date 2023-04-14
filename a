@@ -1,0 +1,200 @@
+[33mcommit 1a1025ab5fd6850e744e4d50a7c934a5894e439c[m[33m ([m[1;36mHEAD[m[33m)[m
+Author: thonghatmit <87261328+thonghatmit@users.noreply.github.com>
+Date:   Thu Apr 13 16:36:48 2023 +0200
+
+    Delete loesung06_eclipse/loesung06_eclipse directory
+
+[1mdiff --git a/loesung06_eclipse/loesung06_eclipse/.classpath b/loesung06_eclipse/loesung06_eclipse/.classpath[m
+[1mdeleted file mode 100644[m
+[1mindex c0f260f..0000000[m
+[1m--- a/loesung06_eclipse/loesung06_eclipse/.classpath[m
+[1m+++ /dev/null[m
+[36m@@ -1,10 +0,0 @@[m
+[31m-<?xml version="1.0" encoding="UTF-8"?>[m
+[31m-<classpath>[m
+[31m-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-12">[m
+[31m-		<attributes>[m
+[31m-			<attribute name="module" value="true"/>[m
+[31m-		</attributes>[m
+[31m-	</classpathentry>[m
+[31m-	<classpathentry kind="src" path="src"/>[m
+[31m-	<classpathentry kind="output" path="bin"/>[m
+[31m-</classpath>[m
+[1mdiff --git a/loesung06_eclipse/loesung06_eclipse/.project b/loesung06_eclipse/loesung06_eclipse/.project[m
+[1mdeleted file mode 100644[m
+[1mindex 83cac05..0000000[m
+[1m--- a/loesung06_eclipse/loesung06_eclipse/.project[m
+[1m+++ /dev/null[m
+[36m@@ -1,17 +0,0 @@[m
+[31m-<?xml version="1.0" encoding="UTF-8"?>[m
+[31m-<projectDescription>[m
+[31m-	<name>Loesung06</name>[m
+[31m-	<comment></comment>[m
+[31m-	<projects>[m
+[31m-	</projects>[m
+[31m-	<buildSpec>[m
+[31m-		<buildCommand>[m
+[31m-			<name>org.eclipse.jdt.core.javabuilder</name>[m
+[31m-			<arguments>[m
+[31m-			</arguments>[m
+[31m-		</buildCommand>[m
+[31m-	</buildSpec>[m
+[31m-	<natures>[m
+[31m-		<nature>org.eclipse.jdt.core.javanature</nature>[m
+[31m-	</natures>[m
+[31m-</projectDescription>[m
+[1mdiff --git a/loesung06_eclipse/loesung06_eclipse/.settings/org.eclipse.jdt.core.prefs b/loesung06_eclipse/loesung06_eclipse/.settings/org.eclipse.jdt.core.prefs[m
+[1mdeleted file mode 100644[m
+[1mindex 71f736f..0000000[m
+[1m--- a/loesung06_eclipse/loesung06_eclipse/.settings/org.eclipse.jdt.core.prefs[m
+[1m+++ /dev/null[m
+[36m@@ -1,14 +0,0 @@[m
+[31m-eclipse.preferences.version=1[m
+[31m-org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled[m
+[31m-org.eclipse.jdt.core.compiler.codegen.targetPlatform=12[m
+[31m-org.eclipse.jdt.core.compiler.codegen.unusedLocal=preserve[m
+[31m-org.eclipse.jdt.core.compiler.compliance=12[m
+[31m-org.eclipse.jdt.core.compiler.debug.lineNumber=generate[m
+[31m-org.eclipse.jdt.core.compiler.debug.localVariable=generate[m
+[31m-org.eclipse.jdt.core.compiler.debug.sourceFile=generate[m
+[31m-org.eclipse.jdt.core.compiler.problem.assertIdentifier=error[m
+[31m-org.eclipse.jdt.core.compiler.problem.enablePreviewFeatures=disabled[m
+[31m-org.eclipse.jdt.core.compiler.problem.enumIdentifier=error[m
+[31m-org.eclipse.jdt.core.compiler.problem.reportPreviewFeatures=warning[m
+[31m-org.eclipse.jdt.core.compiler.release=enabled[m
+[31m-org.eclipse.jdt.core.compiler.source=12[m
+[1mdiff --git a/loesung06_eclipse/loesung06_eclipse/src/DateiEingabe.java b/loesung06_eclipse/loesung06_eclipse/src/DateiEingabe.java[m
+[1mdeleted file mode 100644[m
+[1mindex 2667321..0000000[m
+[1m--- a/loesung06_eclipse/loesung06_eclipse/src/DateiEingabe.java[m
+[1m+++ /dev/null[m
+[36m@@ -1,41 +0,0 @@[m
+[31m-/**[m
+[31m- * Klasse zum Einlesen von Tabellen aus Dateien.[m
+[31m- * [m
+[31m- * @author Sebastian Kasten (Melkom)[m
+[31m- * @version 2013-05-21[m
+[31m- */[m
+[31m-public class DateiEingabe[m
+[31m-{[m
+[31m-    /**[m
+[31m-     * Liest eine Tabelle aus einer Datei aus, die[m
+[31m-     * mittels Dialogfenster ausgew&auml;hlt wird.[m
+[31m-     * [m
+[31m-     * @return Tabelle aus einer Datei[m
+[31m-     */[m
+[31m-    public static MapTabelle lesen() {[m
+[31m-        // Leere Tabelle erstellen[m
+[31m-        MapTabelle ergebnis = new MapTabelle();[m
+[31m-    [m
+[31m-        // Datei oeffnen[m
+[31m-        StdIn.setStdInToFile();[m
+[31m-        [m
+[31m-        // Erste Zeile lesen und Spaltennamen extrahieren[m
+[31m-        String kopfzeile = StdIn.readLine();[m
+[31m-        String[] spaltennamen = kopfzeile.split(";");[m
+[31m-        [m
+[31m-        // Gehe die Datei zeilenweise durch[m
+[31m-        int zeilenIdx = 0;[m
+[31m-        while(!StdIn.isEmpty()) {[m
+[31m-            // Extrahiere Daten[m
+[31m-            String zeile = StdIn.readLine();[m
+[31m-            String[] daten = zeile.split(";");[m
+[31m-            for(int i=0; i<daten.length; i++)[m
+[31m-                // Setze den Wert in der Tabelle[m
+[31m-                ergebnis.setzeWert(zeilenIdx, spaltennamen[i], Double.parseDouble(daten[i]));[m
+[31m-            zeilenIdx++;[m
+[31m-        }[m
+[31m-        StdIn.resetStdIn();[m
+[31m-        [m
+[31m-        return ergebnis;[m
+[31m-    }[m
+[31m-}[m
+[1mdiff --git a/loesung06_eclipse/loesung06_eclipse/src/MapTabelle.java b/loesung06_eclipse/loesung06_eclipse/src/MapTabelle.java[m
+[1mdeleted file mode 100644[m
+[1mindex c3cef4e..0000000[m
+[1m--- a/loesung06_eclipse/loesung06_eclipse/src/MapTabelle.java[m
+[1m+++ /dev/null[m
+[36m@@ -1,106 +0,0 @@[m
+[31m-import java.util.Map;[m
+[31m-import java.util.HashMap;[m
+[31m-import java.util.HashSet;[m
+[31m-[m
+[31m-/**[m
+[31m- * Tabellenimplementierung, die eine HashMap als[m
+[31m- * Basisdatenstruktur benutzt.[m
+[31m- * [m
+[31m- * @author Sebastian Kasten (Melkom)[m
+[31m- * @version 2013-05-21[m
+[31m- */[m
+[31m-public class MapTabelle[m
+[31m-{[m
+[31m-    // Basisdatenstruktur zum speichern der Tabellenwerte[m
+[31m-    private HashMap<Integer, HashMap<String, Double>> daten;[m
+[31m-    private HashSet<String> spalten;[m
+[31m-    private int anzahlZeilen = 0;[m
+[31m-[m
+[31m-    /**[m
+[31m-     * Erstellt eine neue Maptabelle.[m
+[31m-     */[m
+[31m-    public MapTabelle() {[m
+[31m-        daten = new HashMap<Integer, HashMap<String, Double>>();[m
+[31m-        spalten = new HashSet<String>();[m
+[31m-    }[m
+[31m-[m
+[31m-    /** {@inheritDoc} */[m
+[31m-    public double gibWert(int zeile, String spalte) {[m
+[31m-        if (this.daten.containsKey(zeile)) {[m
+[31m-            HashMap<String, Double> werte = this.daten.get(zeile);[m
+[31m-            if (werte.containsKey(spalte)) {[m
+[31m-                return werte.get(spalte);[m
+[31m-            }[m
+[31m-        }[m
+[31m-[m
+[31m-        return 0;[m
+[31m-    }[m
+[31m-[m
+[31m-    /**[m
+[31m-     * Gibt den maximalen Wert in dieser Tabelle zur&uuml;ck.[m
+[31m-     * Wenn die Tabelle leer ist wird Double.MIN_VALUE [m
+[31m-     * zur&uuml;ckgegeben.[m
+[31m-     * [m
+[31m-     * @return maximaler Wert[m
+[31m-     */[m
+[31m-    public double gibMaxWert() {[m
+[31m-        double max = Double.MIN_VALUE;[m
+[31m-[m
+[31m-        // Naive Implementierung: Alle Werte werden durchlaufen[m
+[31m-        // und max Wert aktualisiert[m
+[31m-        for (int zeile = 0; zeile < this.anzahlZeilen; zeile++) {[m
+[31m-            for (String spalte : this.spalten) {[m
+[31m-                if (gibWert(zeile, spalte) > max) {[m
+[31m-                    max = gibWert(zeile, spalte);[m
+[31m-                }[m
+[31m-            }[m
+[31m-        }[m
+[31m-[m
+[31m-        return max;[m
+[31m-    }[m
+[31m-[m
+[31m-    /** {@inheritDoc} */[m
+[31m-    public void setzeWert(int zeile, String spalte, double wert) {[m
+[31m-        HashMap<String, Double> werte;[m
+[31m-        if (this.daten.containsKey(zeile)) {[m
+[31m-            werte = this.daten.get(zeile);[m
+[31m-        } else {[m
+[31m-            werte = new HashMap<String, Double>();[m
+[31m-            this.daten.put(zeile, werte);[m
+[31m-        }[m
+[31m-[m
+[31m-        if (zeile >= this.anzahlZeilen) this.anzahlZeilen++;[m
+[31m-        spalten.add(spalte);[m
+[31m-[m
+[31m-        werte.put(spalte, wert);[m
+[31m-    }[m
+[31m-[m
+[31m-    /**[m
+[31m-     * Gibt die Anzahl der Zeilen in dieser Tabelle[m
+[31m-     * zur&uuml;ck.[m
+[31m-     * [m
+[31m-     * @re
