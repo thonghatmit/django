@@ -13,7 +13,7 @@
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"/>
 </head>
 <h1>
-    Web-GUI của Thông 
+    Web-GUI of Thông 
 </h1>
 {% if user.is_authenticated %}
  <h1>
@@ -65,14 +65,17 @@
     <h5>{{message}}</h5>
     {% endfor %}
     
-    <button id="stat-btn" class="btn btn-outline-primary btn-sm">thỏ thỏ</button>
+    <button id="stat-btn" class="btn btn-outline-primary btn-sm">Rabbit</button>
 </form>
-<form method="POST" action="post/{{user.username}}" class="col-auto">
+
+<form method="POST" action="blog/{{user.username}}" class="col-auto">
     {% csrf_token %}
+   
     {% for message in messages %}
     <h5>{{message}}</h5>
     {% endfor %}
-    <button id="stat-btn" class="btn btn-outline-primary btn-sm">post</button>
+    
+    <button id="stat-btn" class="btn btn-outline-primary btn-sm">blog</button>
 </form>
 
     

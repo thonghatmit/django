@@ -2,12 +2,16 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from .models import Post
+from datetime import datetime
+from django.db import models
 # Create your views here.
 
 def index(request):
     return render(request, 'index.html')
 def vcl(request):
     return HttpResponse('<h1>Thỏ Peo Péo</h1>')
+
 def counter(request):
     text= request.POST['text']
     amountOf=len(text.split())
@@ -32,6 +36,7 @@ def register(request):
      return render(request, 'register.html')
 def login(request):
     if request.method=='POST' :
+        
         username=request.POST.get('username', 'defaultUsername')
         password=request.POST.get('password', 'defaultPassword')
         user=auth.authenticate(username=username, password=password)
@@ -51,14 +56,48 @@ def tho (request,pk):
      return render(request, 'tho.html',{'pk':pk})
     
 def tho1 (request):
-     messages.info(request,  'may phai dang nhap')
+     messages.info(request,  'you have to log in !')
      return redirect('/')
-def post(request,pk) :
+def post(request,pk, uname) :
+    post=Post.objects.get(id=pk)
     
-     return render(request, 'post.html',{'pk':pk})
+    labelid = request.POST.get('submit')
+    print(labelid)
+    pk=request.user.username
+    if labelid=='Delete':
+        print('post delete')
+        post.delete()
+        return redirect('blog', pk=pk)
     
-def post1 (request):
-     messages.info(request,  'may cung phai dang nhap')
-     return redirect('/')
+
+    return render(request, 'post.html', {'pk':pk,'post':post,'uname':uname})
     
+
+def blog1(request):
+    messages.info(request,  'you have to also log in !')
+    return redirect('/')
+def blog(request, pk):
+    
+    if request.method=='POST' :
+     posttitle=request.POST.get('posttitle','False')
+    
+     postbody=request.POST.get('blogpost','False')
+     postauthor=request.user.username
+     pk=request.user.username
+     if posttitle !='False'and postbody!='False' and request.POST.get('PostName')=='PostValue'  :
+        Post.objects.create(title=posttitle,body=postbody,author=postauthor)
+        return redirect( 'blog', pk=pk)
+        
+        
+        
+     
+   
+     
+
+    
+    
+
+    print(request.POST.get('PostName'))
+    posts=Post.objects.all()
+    return render(request, 'blog.html' ,{'pk':pk, 'posts':posts})
 
