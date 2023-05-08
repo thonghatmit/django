@@ -1,1 +1,1 @@
-My first made Web-GUI
+My first made Web-GUI with blog writing
